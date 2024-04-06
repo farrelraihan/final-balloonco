@@ -39,7 +39,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <ion-icon name="balloon-outline"></ion-icon>
               <p>
                 Barang
                 <i class="right fas fa-angle-left"></i>
@@ -48,13 +48,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="lihat-barang.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <ion-icon name="balloon"></ion-icon>
                   <p>Lihat Data Barang</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="input-barang.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <ion-icon name="add-circle-outline"></ion-icon>
                   <p>Tambah Data Barang</p>
                 </a>
               </li>
@@ -63,7 +63,7 @@
 
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <ion-icon name="person-circle-outline"></ion-icon>
               <p>
                 Admin
                 <i class="right fas fa-angle-left"></i>
@@ -72,13 +72,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="lihat-staff.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <ion-icon name="person-outline"></ion-icon>
                   <p>Lihat Data Admin</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="input-staff.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                 <ion-icon name="add-circle-outline"></ion-icon>
                   <p>Tambah Data Admin</p>
                 </a>
               </li>
@@ -87,7 +87,7 @@
 
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <ion-icon name="bar-chart-outline"></ion-icon>
               <p>
                 Penjualan
                 <i class="right fas fa-angle-left"></i>
@@ -96,13 +96,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="lihat-barang.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <ion-icon name="bar-chart"></ion-icon>
                   <p>Lihat Data Penjualan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="lihat-anggota.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                 <ion-icon name="add-circle-outline"></ion-icon>
                   <p>Tambah Data Penjualan</p>
                 </a>
               </li>
@@ -111,7 +111,7 @@
 
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <ion-icon name="bag-check-outline"></ion-icon>
               <p>
                 Pembelian
                 <i class="right fas fa-angle-left"></i>
@@ -120,13 +120,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="lihat-barang.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <ion-icon name="bag-check"></ion-icon>
                   <p>Lihat Data Pembelian</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="lihat-anggota.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <ion-icon name="add-circle-outline"></ion-icon>
                   <p>Tambah Data Pembelian</p>
                 </a>
               </li>
@@ -147,7 +147,7 @@
 
           <li class="nav-item">
             <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-sign-out-alt"></i>
+              <ion-icon name="exit-outline"></ion-icon>
               <p>
                 Logout
               </p>
@@ -159,6 +159,9 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://kit.fontawesome.com/0b6d322b30.js" crossorigin="anonymous"></script>
     <!-- /.sidebar -->
   </aside>
   <!-- /Main Sidebar Container -->
