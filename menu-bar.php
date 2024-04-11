@@ -144,7 +144,7 @@
 
 
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="logout.php" class="nav-link">
               <ion-icon name="exit-outline"></ion-icon>
               <p>
                 Logout
