@@ -66,9 +66,15 @@ include 'header.php';
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Harga Barang</label>
-                                            <input class="form-control" placeholder="Input Harga Barang" type="text" name="harga_barang" required
+                                            <label>Harga Jual</label>
+                                            <input class="form-control" placeholder="Input Harga Jual Barang" type="text" name="harga_barang" required
                                             value="<?php echo $data['harga_barang'];?>">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Harga Beli</label>
+                                            <input class="form-control" placeholder="Input Harga Beli Barang" type="text" name="harga_beli" required
+                                            value="<?php echo $data['harga_beli'];?>">
                                         </div>
 
                                         <div class="form-group">

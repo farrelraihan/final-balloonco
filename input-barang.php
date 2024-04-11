@@ -45,8 +45,13 @@ include 'menu-bar.php';
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Harga Barang</label>
-                                    <input type="text" class="form-control" name="harga_barang" placeholder="Input Harga Barang">
+                                    <label>Harga Jual</label>
+                                    <input type="text" class="form-control" name="harga_barang" placeholder="Input Harga Jual Barang">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Harga Beli</label>
+                                    <input type="text" class="form-control" name="harga_beli" placeholder="Input Harga Beli Barang">
                                 </div>
 
                                 <div class="form-group">

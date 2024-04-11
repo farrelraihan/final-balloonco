@@ -13,13 +13,14 @@ if(isset($_POST['tambah'])) {
     $ambil_nama = $_POST['nama_barang'];
     $ambil_qty = $_POST['qty_barang'];
     $ambil_harga = $_POST['harga_barang'];
+    $ambil_harga_beli = $_POST['harga_beli'];
     $ambil_deskripsi = $_POST['deskripsi_barang'];
 
     // Simpan data ke database
     $query = mysqli_query($koneksi,"INSERT INTO barang 
-                    (kode_barang, nama_barang, qty_barang, harga_barang, deskripsi_barang)            
+                    (kode_barang, nama_barang, qty_barang, harga_barang, harga_beli, deskripsi_barang)            
                     VALUES
-                    ('$kode_barang', '$ambil_nama','$ambil_qty','$ambil_harga','$ambil_deskripsi')");
+                    ('$kode_barang', '$ambil_nama','$ambil_qty','$ambil_harga','$ambil_harga_beli',$ambil_deskripsi')");
 
     header("location: lihat-barang.php");
 }
