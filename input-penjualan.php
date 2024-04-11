@@ -82,10 +82,11 @@ include 'header.php';
             </section>
 
         </div>
-    </div>
-    
-    <!-- Footer -->
+        <!-- Footer -->
     <?php include 'footer.php'; ?>
     <!-- End of Footer -->
+    </div>
+    
+    
 
 </body>
