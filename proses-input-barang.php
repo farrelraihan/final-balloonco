@@ -20,7 +20,7 @@ if(isset($_POST['tambah'])) {
     $query = mysqli_query($koneksi,"INSERT INTO barang 
                     (kode_barang, nama_barang, qty_barang, harga_barang, harga_beli, deskripsi_barang)            
                     VALUES
-                    ('$kode_barang', '$ambil_nama','$ambil_qty','$ambil_harga','$ambil_harga_beli',$ambil_deskripsi')");
+                    ('$kode_barang', '$ambil_nama','$ambil_qty','$ambil_harga','$ambil_harga_beli','$ambil_deskripsi')");
 
     header("location: lihat-barang.php");
 }

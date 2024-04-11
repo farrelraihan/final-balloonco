@@ -101,7 +101,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="lihat-anggota.php" class="nav-link">
+                <a href="input-penjualan.php" class="nav-link">
                  <ion-icon name="add-circle-outline"></ion-icon>
                   <p>Tambah Data Penjualan</p>
                 </a>
@@ -119,13 +119,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="lihat-barang.php" class="nav-link">
+                <a href="lihat-pembelian.php" class="nav-link">
                 <ion-icon name="bag-check"></ion-icon>
                   <p>Lihat Data Pembelian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="lihat-anggota.php" class="nav-link">
+                <a href="input-pembelian.php" class="nav-link">
                   <ion-icon name="add-circle-outline"></ion-icon>
                   <p>Tambah Data Pembelian</p>
                 </a>

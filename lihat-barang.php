@@ -38,19 +38,15 @@ include 'menu-bar.php';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    <h1>Lihat Data Barang</h1>
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Barang</h3>
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                    <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    </div>
+                                    <button onclick="location.href='input-barang.php';" type="button" class="btn btn-block btn-success btn-md"> + Tambah Barang</button>
                                 </div>
+                            
                             </div>
 
                         <!-- /.card-header -->
@@ -114,7 +110,7 @@ include 'menu-bar.php';
                     
                 </div>
             </div>
-            <a href="input-barang.php">+ TAMBAH DATA BARANG</a>
+   
 
             
 

@@ -10,3 +10,8 @@ if($koneksi == false)
 	echo "Tidak Terkoneksi";
 }
 ?>
+
+<?php
+// Set the timezone to GMT+7
+date_default_timezone_set('Asia/Jakarta');
+?>

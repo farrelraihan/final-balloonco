@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'koneksi.php';
 session_start();
 ?>
@@ -24,23 +24,23 @@ include 'header.php';
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <h1>Lihat Data Penjualan</h1>
+                            <h1>Lihat Data Pembelian</h1>
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Data Penjualan</h3>
+                                    <h3 class="card-title">Data Pembelian</h3>
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 200px;">
-                                            <button onclick="location.href='input-penjualan.php';" type="button" class="btn btn-block btn-success btn-md"> + Tambah Penjualan</button>
+                                            <button onclick="location.href='input-pembelian.php';" type="button" class="btn btn-block btn-success btn-md"> + Add Purchase</button>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="card-body table-responsive p-0" style="height: 600px;">
-                                    <table class="table table-head-fixed text-nowrap">
+                                <div class="card-body table-responsive">
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Kode Penjualan</th>
+                                                <th>Kode Pembelian</th>
                                                 <th>Item</th>
                                                 <th>Quantity</th>
                                                 <th>Date</th>
@@ -52,20 +52,20 @@ include 'header.php';
                                             // Include your database connection file
                                             include 'koneksi.php';
 
-                                            $query = mysqli_query($koneksi, "SELECT p.kode_penjualan, b.nama_barang, p.quantity, p.tanggal_penjualan
-                                            FROM penjualan p
-                                            JOIN barang b ON p.id_barang = b.id_barang
-                                            ORDER BY p.tanggal_penjualan ASC");
+                                            $query = mysqli_query($koneksi, "SELECT pb.kode_pembelian, b.nama_barang, pb.quantity, pb.tanggal_pembelian
+                                                                            FROM pembelian pb
+                                                                            JOIN barang b ON pb.id_barang = b.id_barang
+                                                                            ORDER BY pb.tanggal_pembelian ASC");
 
                                             $no = 1;
                                             while ($data = mysqli_fetch_array($query)) {
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <td><?php echo $data['kode_penjualan']; ?></td>
+                                                    <td><?php echo $data['kode_pembelian']; ?></td>
                                                     <td><?php echo $data['nama_barang']; ?></td>
                                                     <td><?php echo $data['quantity']; ?></td>
-                                                    <td><?php echo $data['tanggal_penjualan'] ? date("Y-m-d H:i:s", strtotime($data['tanggal_penjualan'])) : ''; ?></td>
+                                                    <td><?php echo date("Y-m-d H:i:s", strtotime($data['tanggal_pembelian'])); ?></td>
                                                 </tr>
                                                 <?php
                                                 $no++;

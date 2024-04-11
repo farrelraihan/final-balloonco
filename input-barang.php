@@ -26,10 +26,10 @@ include 'menu-bar.php';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h1>Tambah Data Barang</h1>
+                    <h1>Input Data Barang</h1>
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Form Tambah Data Barang</h3>
+                            <h3 class="card-title">Form Input Data Barang</h3>
                         </div>
 
                         <form method="POST" action="proses-input-barang.php">

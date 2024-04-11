@@ -33,7 +33,7 @@ include 'header.php';
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <h1>Form Input Data Admin</h1>
+                            <h1> Input Data Admin</h1>
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Form Input Data Admin</h3>
