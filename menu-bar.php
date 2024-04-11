@@ -95,7 +95,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="lihat-barang.php" class="nav-link">
+                <a href="lihat-penjualan.php" class="nav-link">
                   <ion-icon name="bar-chart"></ion-icon>
                   <p>Lihat Data Penjualan</p>
                 </a>
