@@ -143,14 +143,13 @@
 
 
 
-          <li class="nav-item">
-            <a href="logout.php" class="nav-link">
-              <ion-icon name="exit-outline"></ion-icon>
-              <p>
-                Logout
-              </p>
-            </a>
-          </li>
+          <a href="#" class="nav-link" data-toggle="modal" data-target="#modalKonfirmasiLogout">
+            <ion-icon name="exit-outline"></ion-icon>
+            <p>
+              Logout
+            </p>
+          </a>
+
 
 
         </ul>
@@ -162,4 +161,26 @@
   <script src="https://kit.fontawesome.com/0b6d322b30.js" crossorigin="anonymous"></script>
     <!-- /.sidebar -->
   </aside>
+
+  <!-- Modal Konfirmasi Logout -->
+<div class="modal fade" id="modalKonfirmasiLogout" tabindex="-1" aria-labelledby="modalKonfirmasiLogoutLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-danger">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalKonfirmasiLogoutLabel">Konfirmasi Logout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah Anda yakin ingin keluar dari aplikasi?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Batal</button>
+        <a href="logout.php" class="btn btn-success">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- /Main Sidebar Container -->
