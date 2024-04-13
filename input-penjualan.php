@@ -40,7 +40,7 @@ include 'header.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Form Input Data Penjualan</h3>
                                 </div>
-                                <form name="input_data" method="post" action="proses-input-penjualan.php">
+                                <form name="input_data" method="post" action="proses-input-penjualan.php" onsubmit="return confirm('Are you sure you want to save?');">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Kode Penjualan</label>
@@ -70,7 +70,7 @@ include 'header.php';
                                         <!-- Hidden input field for current date and time -->
                                         <input type="hidden" name="tanggal_penjualan" value="<?php echo $current_datetime; ?>">
                                         <div class="form-group">
-                                            <input class="btn btn-primary" type="submit" name="tambah" value="SAVE" onclick="return confirm('Are you sure you want to save this data?')">
+                                            <input class="btn btn-primary" type="submit" name="tambah" value="SAVE">
                                         </div>
                                     </div>
                                 </form>
@@ -86,7 +86,4 @@ include 'header.php';
     <?php include 'footer.php'; ?>
     <!-- End of Footer -->
     </div>
-    
-    
-
 </body>
