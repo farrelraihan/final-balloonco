@@ -65,11 +65,7 @@ include 'header.php';
                                             value="<?php echo $data['login_admin'];?>">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label>Password Admin</label>
-                                            <input class="form-control" placeholder="Input Password Admin" type="text" name="pw_admin" required
-                                            value="<?php echo $data['pw_admin'];?>">
-                                        </div>
+                                        
 
                                         <div class="form-group">
                                             <input class="btn btn-primary" type="submit" name="ubah" value="UPDATE DATA" 
