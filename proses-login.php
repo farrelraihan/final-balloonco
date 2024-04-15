@@ -12,7 +12,7 @@ if(isset($_POST['login'])) {
     if(mysqli_num_rows($query) == 1) {
         $_SESSION['id_admin'] = $data['id_admin'];
         $_SESSION['nama_admin'] = $data['nama_admin'];
-        header("location: lihat-barang.php");
+        header("location: home.php");
     } else {
         echo "Email atau password salah!";
     }
