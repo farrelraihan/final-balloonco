@@ -2,6 +2,8 @@
 include 'koneksi.php';
 session_start();
 
+
+
 if(isset($_POST['login'])) {
     $login_admin = $_POST['login_admin'];
     $pw_admin = md5($_POST['pw_admin']);
@@ -15,7 +17,7 @@ if(isset($_POST['login'])) {
         header("location: home.php");
     } else {
         // Display alert and redirect back to index.html after 3 seconds
-        echo "<script>alert('Incorrect username or password!'); setTimeout(function(){ window.location.href = 'index.html'; }, 1000);</script>";
+        header("location: index.html?error=true"); 
     }
 }
 ?>
