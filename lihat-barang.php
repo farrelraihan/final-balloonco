@@ -51,16 +51,17 @@ include 'menu-bar.php';
 
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-bordered table-hover text-nowrap">
+                            <table class="table table-striped table-hover text-nowrap">
                                 <thead>
                                     <tr>
                                         <th>NO.</th>
-                                        <th>ID Barang</th>
+                                       
                                         <th>Kode Barang</th>
                                         <th>Nama Barang</th>
                                         <th>QTY Barang</th>
                                         <th>Harga Jual</th>
                                         <th>Harga Beli</th>
+                                      
                                         <th>Deskripsi Barang</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -75,12 +76,12 @@ include 'menu-bar.php';
                                 ?>
                                 <tr>
                                     <td><?php echo $no; ?>                      </td>			
-                                    <td><?php echo $data['id_barang']; ?>         </td>	
+                                    	
                                     <td><?php echo $data['kode_barang']; ?>         </td>		
                                     <td><?php echo $data['nama_barang']; ?>      </td>			
                                     <td><?php echo $data['qty_barang']; ?>  </td>			
-                                    <td><?php echo number_format($data['harga_barang']) ; ?>     </td>	
-                                    <td><?php echo number_format($data['harga_beli']) ; ?>     </td>	
+                                    <td><p>Rp<?php echo number_format($data['harga_barang']) ; ?>     </td>	</p>
+                                    <td><p>Rp<?php echo number_format($data['harga_beli']) ; ?>     </td>	</p>
                                     <td><?php echo $data['deskripsi_barang']; ?>     </td>	
                                     <td>
                                         <a class="btn btn-warning btn-md" href="edit-barang.php?id=<?php echo $data['id_barang']; ?>">
