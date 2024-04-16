@@ -4,7 +4,7 @@
     <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Balloonco</b> 
+      <a href="https://balloonco.shop">Balloonco</a>
     </div>
   </footer>
 
