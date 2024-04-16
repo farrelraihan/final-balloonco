@@ -14,9 +14,8 @@ if(isset($_POST['login'])) {
         $_SESSION['nama_admin'] = $data['nama_admin'];
         header("location: home.php");
     } else {
-        echo "Email atau password salah!";
+        // Display alert and redirect back to index.html after 3 seconds
+        echo "<script>alert('Incorrect username or password!'); setTimeout(function(){ window.location.href = 'index.html'; }, 1000);</script>";
     }
 }
 ?>
-
-
