@@ -4,7 +4,7 @@
   <!-- Main Sidebar Container -->
   <aside class="bg-navy color-palette main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="home.php" class="brand-link">
       
       <span class="brand-text font-weight-light">Balloonco Stock App</span>
     </a>
