@@ -4,6 +4,12 @@ session_start();
 ?>
 
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
+
+<?php
 include 'header.php';
 ?>
 
@@ -57,6 +63,25 @@ include 'menu-bar.php';
                         <a href="lihat-barang.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                        <?php
+                            include 'koneksi.php';
+                            $query = mysqli_query($koneksi, "SELECT SUM(qty_barang) AS total_quantity FROM barang");
+                            $result = mysqli_fetch_assoc($query);
+                            $total_quantity = $result['total_quantity'];
+                            ?>
+                            <h3><?php echo $total_quantity; ?></h3>
+                            <p>Total Quantity of Barang</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="lihat-barang.php" class="small-box-footer">More Info</a>
+                    </div>
+                </div>
                 
                 <!-- Total Data Type from Penjualan -->
                 <div class="col-lg-3 col-6">
@@ -90,7 +115,7 @@ include 'menu-bar.php';
                             $result = mysqli_fetch_assoc($query);
                             $total_profit = $result['total_profit'];
                             ?>
-                            <h3>Rp.<?php echo number_format($total_profit); ?></h3>
+                            <h3>Rp<?php echo number_format($total_profit); ?></h3>
                             <p>Total Profit</p>
                         </div>
                         <div class="icon">
@@ -183,7 +208,7 @@ include 'menu-bar.php';
                                     echo "<td>" . $row['kode_penjualan'] . "</a></td>";
                                     echo "<td>" . $row['nama_barang'] . "</td>";
                                     echo "<td>" . $row['quantity'] . "</td>";
-                                    echo "<td>Rp." . number_format($row['total_profit']) . "</td>";
+                                    echo "<td>Rp" . number_format($row['total_profit']) . "</td>";
                                     echo "<td>" . date('Y-m-d H:i:s', strtotime($row['tanggal_penjualan'])) . "</td>";
                                     echo "</tr>";
                                 }
