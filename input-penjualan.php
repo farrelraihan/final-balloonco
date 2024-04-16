@@ -74,7 +74,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                 </form>
-                                <a href="lihat-penjualan.php" class="btn btn-secondary">VIEW SALES DATA</a>
+                                <a href="lihat-penjualan.php" class="btn btn-secondary">LIHAT DATA PENJUALAN</a>
                             </div>
                         </div>
                     </div>

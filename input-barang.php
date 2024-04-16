@@ -65,6 +65,7 @@ include 'menu-bar.php';
                                 </div>
                             </div>
                         </form>
+                        <a href="lihat-barang.php" class="btn btn-secondary">LIHAT DATA BARANG</a>
                     </div>
                 </div>
             </div>
