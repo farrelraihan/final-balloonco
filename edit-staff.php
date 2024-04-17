@@ -62,7 +62,7 @@ include 'header.php';
                                         <div class="form-group">
                                             <label>Login Admin</label>
                                             <input class="form-control" placeholder="Input Login Admin" type="text" name="login_admin" required
-                                            value="<?php echo $data['login_admin'];?>">
+                                            value="<?php echo $data['login_admin'];?>" readonly>
                                         </div>
 
                                         
