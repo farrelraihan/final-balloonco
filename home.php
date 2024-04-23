@@ -136,7 +136,7 @@ include 'menu-bar.php';
 
                 <!-- Total Admin -->
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg-lightblue">
                         <div class="inner">
                             <!-- Kode PHP untuk mengambil dan menampilkan total admin -->
                             <?php
@@ -153,6 +153,27 @@ include 'menu-bar.php';
                         <a href="lihat-staff.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+
+                <!-- Kartu: Barang Stok Rendah -->
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <!-- Kode PHP untuk mengambil dan menampilkan jumlah barang dengan stok rendah -->
+                                <?php
+                                $query = mysqli_query($koneksi, "SELECT COUNT(*) AS total_low_stock FROM barang WHERE qty_barang < 5");
+                                $result = mysqli_fetch_assoc($query);
+                                $total_low_stock = $result['total_low_stock'];
+                                ?>
+                                <h3><?php echo $total_low_stock; ?></h3>
+                                <p>Barang Stok Rendah</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-alert"></i>
+                            </div>
+                            <a href="lihat-barang.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
             </div>
             <!-- /.row -->
 
