@@ -2,13 +2,13 @@
 include 'koneksi.php';
 session_start();
 
-// Get total number of purchase data
+// Dapatkan total jumlah data pembelian
 $query = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM pembelian");
 $data = mysqli_fetch_assoc($query);
 $sequence_number = $data['total'] + 1;
 $kode_pembelian = "BUY-" . sprintf("%04d", $sequence_number);
 
-// Get current date and time
+// Dapatkan tanggal dan waktu saat ini
 $current_datetime = date("Y-m-d H:i:s");
 ?>
 
@@ -18,7 +18,7 @@ include 'header.php';
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-        
+
         <?php
         include 'menu-bar.php';
         ?>
@@ -26,9 +26,7 @@ include 'header.php';
         <div class="content-wrapper">
             <div class="content-header">
                 <div class="container-fluid">
-
                 </div>
-
             </div>
 
             <section class="content">
@@ -44,31 +42,33 @@ include 'header.php';
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Kode Pembelian</label>
-                                            <!-- Use dynamically generated purchase code -->
+                                            <!-- Gunakan kode pembelian yang dihasilkan secara dinamis -->
                                             <input class="form-control" type="text" name="kode_pembelian" value="<?php echo $kode_pembelian; ?>" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label>Item</label>
-                                            <!-- Dropdown to select item -->
-                                            <select class="form-control" name="item">
+                                            <!-- Dropdown untuk memilih item -->
+                                            <select class="form-control" name="item" id="item" onchange="displayQuantity()">
                                                 <?php
-                                                // Query to fetch items from the database
-                                                $sql = "SELECT id_barang, nama_barang FROM barang";
+                                                // Query untuk mengambil item dari database
+                                                $sql = "SELECT id_barang, nama_barang, qty_barang FROM barang";
                                                 $result = mysqli_query($koneksi, $sql);
-                                                // Display items in dropdown menu
+                                                // Tampilkan item dalam menu dropdown
                                                 while ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<option value='" . $row['id_barang'] . "'>" . $row['nama_barang'] . "</option>";
+                                                    echo "<option value='" . $row['id_barang'] . "' data-quantity='" . $row['qty_barang'] . "'>" . $row['nama_barang'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
                                         </div>
+                                        <!-- Menampilkan kuantitas yang tersedia -->
+                                        <div id="quantityDisplay"></div>
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <!-- Input field for quantity -->
+                                            <!-- Input untuk kuantitas -->
                                             <input class="form-control" type="number" id="quantity" name="quantity">
-                                            <span id="quantityError" style="color: red;"></span> <!-- Error message placeholder -->
+                                            <span id="quantityError" style="color: red;"></span> <!-- Placeholder pesan kesalahan -->
                                         </div>
-                                        <!-- Hidden input field for current date and time -->
+                                        <!-- Bidang input tersembunyi untuk tanggal dan waktu saat ini -->
                                         <input type="hidden" name="tanggal_pembelian" value="<?php echo $current_datetime; ?>">
                                         <div class="form-group">
                                             <input class="btn btn-primary" type="submit" name="tambah" value="SAVE" onclick="return confirm('Are you sure you want to save this data?')">
@@ -84,7 +84,7 @@ include 'header.php';
 
         </div>
     </div>
-    
+
     <!-- Footer -->
     <?php include 'footer.php'; ?>
     <!-- End of Footer -->
@@ -97,6 +97,16 @@ include 'header.php';
                 return false;
             }
             return true;
+        }
+
+        function displayQuantity() {
+            var itemSelect = document.getElementById("item");
+            var selectedQuantity = itemSelect.options[itemSelect.selectedIndex].getAttribute("data-quantity");
+            var quantityDisplay = document.getElementById("quantityDisplay");
+            // Ubah warna teks menjadi merah jika kuantitas kurang dari 5
+            var textColor = (selectedQuantity < 5) ? 'red' : 'black';
+            quantityDisplay.innerHTML = "Available Quantity: " + selectedQuantity;
+            quantityDisplay.style.color = textColor;
         }
     </script>
 </body>
