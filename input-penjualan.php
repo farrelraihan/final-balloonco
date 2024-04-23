@@ -50,17 +50,21 @@ include 'header.php';
                                         <div class="form-group">
                                             <label>Item</label>
                                             <!-- Dropdown to select item -->
-                                            <select class="form-control" name="item">
+                                            <select class="form-control" name="item" id="item" onchange="displayQuantity()">
                                                 <?php
                                                 // Query to fetch items from the database
-                                                $sql = "SELECT id_barang, nama_barang FROM barang";
+                                                $sql = "SELECT id_barang, nama_barang, qty_barang FROM barang";
                                                 $result = mysqli_query($koneksi, $sql);
-                                                // Display items in dropdown menu
+                                                // Display items in dropdown menu with their quantities
                                                 while ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<option value='" . $row['id_barang'] . "'>" . $row['nama_barang'] . "</option>";
+                                                    $quantity = $row['qty_barang'];
+                                                    // Determine text color based on quantity
+                                                    $textColor = ($quantity < 5) ? 'red' : 'black';
+                                                    echo "<option value='" . $row['id_barang'] . "' data-quantity='" . $quantity . "' style='color: " . $textColor . "'>" . $row['nama_barang'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
+                                            <span id="quantityDisplay"></span> <!-- Placeholder to display available quantity -->
                                         </div>
                                         <div class="form-group">
                                             <label>Quantity</label>
@@ -96,6 +100,12 @@ include 'header.php';
                 return false;
             }
             return true;
+        }
+
+        function displayQuantity() {
+            var itemSelect = document.getElementById("item");
+            var selectedQuantity = itemSelect.options[itemSelect.selectedIndex].getAttribute("data-quantity");
+            document.getElementById("quantityDisplay").innerHTML = "Available Quantity: " + selectedQuantity;
         }
     </script>
 </body>
