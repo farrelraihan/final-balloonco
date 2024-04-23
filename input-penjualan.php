@@ -2,13 +2,13 @@
 include 'koneksi.php';
 session_start();
 
-// Get total number of sales data
+// Dapatkan total jumlah data penjualan
 $query = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM penjualan");
 $data = mysqli_fetch_assoc($query);
 $sequence_number = $data['total'] + 1;
 $kode_penjualan = "KP-" . sprintf("%04d", $sequence_number);
 
-// Get current date and time
+// Dapatkan tanggal dan waktu saat ini
 $current_datetime = date("Y-m-d H:i:s");
 ?>
 
@@ -44,38 +44,38 @@ include 'header.php';
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Kode Penjualan</label>
-                                            <!-- Use dynamically generated sales code -->
+                                            <!-- Gunakan kode penjualan yang dihasilkan secara dinamis -->
                                             <input class="form-control" type="text" name="kode_penjualan" value="<?php echo $kode_penjualan; ?>" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label>Item</label>
-                                            <!-- Dropdown to select item -->
+                                            <!-- Dropdown untuk memilih item -->
                                             <select class="form-control" name="item" id="item" onchange="displayQuantity()">
                                                 <?php
-                                                // Query to fetch items from the database
+                                                // Query untuk mengambil item dari database
                                                 $sql = "SELECT id_barang, nama_barang, qty_barang FROM barang";
                                                 $result = mysqli_query($koneksi, $sql);
-                                                // Display items in dropdown menu with their quantities
+                                                // Tampilkan item dalam menu dropdown dengan kuantitasnya
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $quantity = $row['qty_barang'];
-                                                    // Determine text color based on quantity
+                                                    // Tentukan warna teks berdasarkan kuantitas
                                                     $textColor = ($quantity < 5) ? 'red' : 'black';
-                                                    echo "<option value='" . $row['id_barang'] . "' data-quantity='" . $quantity . "' style='color: " . $textColor . "'>" . $row['nama_barang'] . "</option>";
+                                                    echo "<option value='" . $row['id_barang'] . "' data-quantity='" . $quantity . "'>" . $row['nama_barang'] . "</option>";
                                                 }
                                                 ?>
                                             </select>
-                                            <span id="quantityDisplay"></span> <!-- Placeholder to display available quantity -->
+                                            <span id="quantityDisplay" style="color: black;"></span> <!-- Placeholder untuk menampilkan kuantitas yang tersedia -->
                                         </div>
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <!-- Input field for quantity -->
+                                            <!-- Input untuk kuantitas -->
                                             <input class="form-control" type="number" id="quantity" name="quantity">
-                                            <span id="quantityError" style="color: red;"></span> <!-- Error message placeholder -->
+                                            <span id="quantityError" style="color: red;"></span> <!-- Placeholder pesan kesalahan -->
                                         </div>
-                                        <!-- Hidden input field for current date and time -->
+                                        <!-- Bidang input tersembunyi untuk tanggal dan waktu saat ini -->
                                         <input type="hidden" name="tanggal_penjualan" value="<?php echo $current_datetime; ?>">
                                         <div class="form-group">
-                                            <input class="btn btn-primary" type="submit" name="tambah" value="SAVE">
+                                            <input class="btn btn-primary" type="submit" name="tambah" value="SAVE" onclick="return confirm('Are you sure you want to save this data?')">
                                         </div>
                                     </div>
                                 </form>
@@ -105,7 +105,11 @@ include 'header.php';
         function displayQuantity() {
             var itemSelect = document.getElementById("item");
             var selectedQuantity = itemSelect.options[itemSelect.selectedIndex].getAttribute("data-quantity");
-            document.getElementById("quantityDisplay").innerHTML = "Available Quantity: " + selectedQuantity;
+            var quantityDisplay = document.getElementById("quantityDisplay");
+            // Tentukan warna teks berdasarkan kuantitas
+            var textColor = (selectedQuantity < 5) ? 'red' : 'black';
+            quantityDisplay.innerHTML = "Available Quantity: " + selectedQuantity;
+            quantityDisplay.style.color = textColor;
         }
     </script>
 </body>
