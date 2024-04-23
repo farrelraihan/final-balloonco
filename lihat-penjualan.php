@@ -37,19 +37,6 @@ if(isset($_POST['filter'])) {
               ORDER BY p.tanggal_penjualan ASC";
 }
 
-// Pagination
-$total_records_query = "SELECT COUNT(*) AS total_records FROM penjualan";
-$total_records_result = mysqli_query($koneksi, $total_records_query);
-$total_records_row = mysqli_fetch_assoc($total_records_result);
-$total_records = $total_records_row['total_records'];
-
-$total_pages = ceil($total_records / 7); // Limit of 7 data per page
-
-$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-$offset = ($current_page - 1) * 7;
-
-$query .= " LIMIT 7 OFFSET $offset";
-
 // Execute the query
 $result = mysqli_query($koneksi, $query);
 
@@ -58,6 +45,7 @@ $total_profit_all_pages_query = "SELECT SUM(p.quantity * b.harga_beli) AS total_
 $total_profit_all_pages_result = mysqli_query($koneksi, $total_profit_all_pages_query);
 $total_profit_all_pages_row = mysqli_fetch_assoc($total_profit_all_pages_result);
 $total_profit_all_pages = $total_profit_all_pages_row['total_profit'];
+
 ?>
 
 <?php
@@ -127,7 +115,7 @@ include 'header.php';
 
                                         <tbody>
                                             <?php
-                                            $no = ($current_page - 1) * 7 + 1;
+                                            $no = 1;
                                             while ($data = mysqli_fetch_array($result)) {
                                                 $purchase_price = $data['harga_beli'];
                                                 $quantity = $data['quantity'];
@@ -141,7 +129,7 @@ include 'header.php';
                                                     <td><?php echo $data['nama_barang']; ?></td>
                                                     <td><?php echo $data['quantity']; ?></td>
                                                     <td><p>Rp<?php echo number_format($profit); ?></p></td>
-                                                    <td><?php echo $data['tanggal_penjualan'] ? date("Y-m-d H:i:s", strtotime($data['tanggal_penjualan'])) : ''; ?></td>
+                                                    <td><?php echo $data['tanggal_penjualan'] ? date("d-m-Y H:i:s", strtotime($data['tanggal_penjualan'])) : ''; ?></td>
                                                 </tr>
                                                 <?php
                                                 $no++;
@@ -153,21 +141,11 @@ include 'header.php';
                                 <div class="card-footer">
                                     <div class="row">
                                         <div class="col">
-                                            <h5>Total Profit (Current Page): Rp<?php echo number_format($total_profit_current_page); ?></h5>
+                                        <h5>Total Profit: Rp<?php echo number_format($total_profit_all_pages); ?></h5>
                                         </div>
                                         <div class="col">
-                                            <h5>Total Profit (All Pages): Rp<?php echo number_format($total_profit_all_pages); ?></h5>
+                                            
                                         </div>
-                                    </div>
-                                    <div class="pagination">
-                                        <?php if ($current_page > 1): ?>
-                                            <a href="?page=<?php echo ($current_page - 1); ?>">Previous</a>&nbsp;&nbsp;  <?php endif; ?>
-
-                                        <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                                            <a href="?page=<?php echo $i; ?>" <?php if ($i == $current_page) echo 'class="active"'; ?>><?php echo $i; ?></a>&nbsp;&nbsp; <?php endfor; ?>
-
-                                        <?php if ($current_page < $total_pages): ?>
-                                            <a href="?page=<?php echo ($current_page + 1); ?>">Next</a>&nbsp;&nbsp;  <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
