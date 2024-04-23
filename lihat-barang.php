@@ -58,10 +58,9 @@ include 'menu-bar.php';
                                        
                                         <th>Kode Barang</th>
                                         <th>Nama Barang</th>
-                                        <th>QTY Barang</th>
-                                        <th>Harga Jual</th>
-                                        <th>Harga Beli</th>
-                                      
+                                        <th class="text-right">QTY Barang</th> <!-- Align right class added here -->
+                                        <th class="text-right">Harga Jual</th> <!-- Align right class added here -->
+                                        <th class="text-right">Harga Beli</th> <!-- Align right class added here -->
                                         <th>Deskripsi Barang</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -79,9 +78,9 @@ include 'menu-bar.php';
                                     	
                                     <td><?php echo $data['kode_barang']; ?>         </td>		
                                     <td><?php echo $data['nama_barang']; ?>      </td>			
-                                    <td><?php echo $data['qty_barang']; ?>  </td>			
-                                    <td><p>Rp<?php echo number_format($data['harga_barang']) ; ?>     </td>	</p>
-                                    <td><p>Rp<?php echo number_format($data['harga_beli']) ; ?>     </td>	</p>
+                                    <td class="text-right"><?php echo $data['qty_barang']; ?>  </td>	<!-- Align right class added here -->
+                                    <td class="text-right"><p>Rp<?php echo number_format($data['harga_barang']) ; ?>     </p></td> <!-- Align right class added here -->
+                                    <td class="text-right"><p>Rp<?php echo number_format($data['harga_beli']) ; ?>     </p></td> <!-- Align right class added here -->
                                     <td><?php echo $data['deskripsi_barang']; ?>     </td>	
                                     <td>
                                         <a class="btn btn-warning btn-md" href="edit-barang.php?id=<?php echo $data['id_barang']; ?>">
@@ -133,5 +132,3 @@ include 'footer.php';
 
 
 </body> 
-
-
