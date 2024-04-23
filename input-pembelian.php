@@ -40,7 +40,7 @@ include 'header.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Form Input Data Pembelian</h3>
                                 </div>
-                                <form name="input_data" method="post" action="proses-input-pembelian.php">
+                                <form name="input_data" method="post" action="proses-input-pembelian.php" onsubmit="return validateForm();">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Kode Pembelian</label>
@@ -65,7 +65,8 @@ include 'header.php';
                                         <div class="form-group">
                                             <label>Quantity</label>
                                             <!-- Input field for quantity -->
-                                            <input class="form-control" type="number" name="quantity">
+                                            <input class="form-control" type="number" id="quantity" name="quantity">
+                                            <span id="quantityError" style="color: red;"></span> <!-- Error message placeholder -->
                                         </div>
                                         <!-- Hidden input field for current date and time -->
                                         <input type="hidden" name="tanggal_pembelian" value="<?php echo $current_datetime; ?>">
@@ -88,4 +89,14 @@ include 'header.php';
     <?php include 'footer.php'; ?>
     <!-- End of Footer -->
 
+    <script>
+        function validateForm() {
+            var quantity = document.getElementById("quantity").value;
+            if (quantity === "" || quantity == 0) {
+                document.getElementById("quantityError").innerHTML = "Quantity cannot be empty or zero";
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>

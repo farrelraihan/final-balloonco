@@ -40,7 +40,7 @@ include 'header.php';
                                 <div class="card-header">
                                     <h3 class="card-title">Form Input Data Penjualan</h3>
                                 </div>
-                                <form name="input_data" method="post" action="proses-input-penjualan.php" onsubmit="return confirm('Are you sure you want to save?');">
+                                <form name="input_data" method="post" action="proses-input-penjualan.php" onsubmit="return validateForm();">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Kode Penjualan</label>
@@ -65,7 +65,8 @@ include 'header.php';
                                         <div class="form-group">
                                             <label>Quantity</label>
                                             <!-- Input field for quantity -->
-                                            <input class="form-control" type="number" name="quantity">
+                                            <input class="form-control" type="number" id="quantity" name="quantity">
+                                            <span id="quantityError" style="color: red;"></span> <!-- Error message placeholder -->
                                         </div>
                                         <!-- Hidden input field for current date and time -->
                                         <input type="hidden" name="tanggal_penjualan" value="<?php echo $current_datetime; ?>">
@@ -86,4 +87,15 @@ include 'header.php';
     <?php include 'footer.php'; ?>
     <!-- End of Footer -->
     </div>
+
+    <script>
+        function validateForm() {
+            var quantity = document.getElementById("quantity").value;
+            if (quantity === "" || quantity == 0) {
+                document.getElementById("quantityError").innerHTML = "Quantity cannot be empty or zero";
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
