@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +26,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
-
-
 </head>
-
-
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -49,51 +44,30 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="https://balloonco.shop" class="nav-link">Official Website</a>
       </li>
-      
     </ul>
-
-
-
- 
-
-    <!-- SEARCH FORM -->
-   
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item d-none d-sm-inline-block">
-          <span class="nav-link ml-auto" id="date-time"></span> 
-        </li>
+        <span class="nav-link ml-auto" id="date-time"></span> 
+      </li>
     </ul>
-      <!-- Messages Dropdown Menu -->
-     
-            <!-- Message End -->
-          
-            <!-- Message End -->
-         
-            <!-- Message End -->
-         
-      <!-- Notifications Dropdown Menu -->
-      
-  
-      
   </nav>
 
   <script>
     function updateDateTime() {
       const now = new Date();
-      const formattedDateTime = now.toLocaleString([], { 
-          hour: '2-digit', 
-          minute: '2-digit',
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit'
-      });
+      const day = now.getDate().toString().padStart(2, '0');
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const year = now.getFullYear();
+      const hour = now.getHours().toString().padStart(2, '0');
+      const minute = now.getMinutes().toString().padStart(2, '0');
+      const second = now.getSeconds().toString().padStart(2, '0');
+      const formattedDateTime = `${day}-${month}-${year} ${hour}:${minute}:${second}`;
       document.getElementById('date-time').textContent = formattedDateTime;
 
       setTimeout(updateDateTime, 1000); 
     }
 
     updateDateTime();
-</script>
-
+  </script>
