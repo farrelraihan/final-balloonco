@@ -3,7 +3,7 @@ include 'koneksi.php';
 session_start();
 
 if(isset($_POST['tambah'])) {
-    // Generate kode barang dynamically
+    // Generate kode barang secara dinamis
     $query = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM barang");
     $data = mysqli_fetch_assoc($query);
     $sequence_number = $data['total'] + 1;
@@ -12,8 +12,11 @@ if(isset($_POST['tambah'])) {
     // Tangkap data dari form
     $ambil_nama = $_POST['nama_barang'];
     $ambil_qty = $_POST['qty_barang'];
-    $ambil_harga = $_POST['harga_barang'];
-    $ambil_harga_beli = $_POST['harga_beli'];
+    
+    // Hapus karakter tambahan (misalnya, 'Rp' dan '.') pada harga beli dan harga jual menggunakan fungsi str_replace()
+    $ambil_harga = str_replace(['Rp', '.'], '', $_POST['harga_barang']);
+    $ambil_harga_beli = str_replace(['Rp', '.'], '', $_POST['harga_beli']);
+    
     $ambil_deskripsi = $_POST['deskripsi_barang'];
 
     // Simpan data ke database
