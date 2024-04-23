@@ -46,12 +46,14 @@ include 'menu-bar.php';
 
                                 <div class="form-group">
                                     <label>Harga Jual</label>
-                                    <input type="text" class="form-control" name="harga_barang" placeholder="Input Harga Jual Barang">
+                                    <!-- Tambahkan class "harga-jual" untuk mengaktifkan plugin jQuery MaskMoney -->
+                                    <input type="text" class="form-control harga-jual" name="harga_barang" placeholder="Input Harga Jual Barang">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Harga Beli</label>
-                                    <input type="text" class="form-control" name="harga_beli" placeholder="Input Harga Beli Barang">
+                                    <!-- Tambahkan class "harga-beli" untuk mengaktifkan plugin jQuery MaskMoney -->
+                                    <input type="text" class="form-control harga-beli" name="harga_beli" placeholder="Input Harga Beli Barang">
                                 </div>
 
                                 <div class="form-group">
@@ -76,5 +78,17 @@ include 'menu-bar.php';
 <?php
 include 'footer.php';
 ?>
+
+<!-- Tambahkan script jQuery untuk mengaktifkan plugin jQuery MaskMoney -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // Aktifkan plugin jQuery MaskMoney pada input harga beli
+        $('.harga-beli').maskMoney({prefix:'Rp', thousands:'.', decimal:',', precision:0});
+        
+        // Aktifkan plugin jQuery MaskMoney pada input harga jual
+        $('.harga-jual').maskMoney({prefix:'Rp', thousands:'.', decimal:',', precision:0});
+    });
+</script>
 </div> <!-- /.wrapper -->
-</body> 
+</body>
