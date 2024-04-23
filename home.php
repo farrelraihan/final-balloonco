@@ -1,18 +1,11 @@
-<?php 
+<?php
 include 'koneksi.php';
 session_start();
 ?>
 
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
-
-
-<?php
 include 'header.php';
 ?>
-
 
 <?php
 include 'menu-bar.php';
@@ -26,17 +19,11 @@ include 'menu-bar.php';
                 <div class="col-sm-6">
                     <!-- Page Title -->
                     <h1 class="m-0 text-dark">Home</h1>
-
                 </div>
-
                 <div class="col-sm-6">
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <!-- Main content -->
     <section class="content">
@@ -64,10 +51,11 @@ include 'menu-bar.php';
                     </div>
                 </div>
 
+                <!-- Total Quantity of Barang -->
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                        <?php
+                            <?php
                             include 'koneksi.php';
                             $query = mysqli_query($koneksi, "SELECT SUM(qty_barang) AS total_quantity FROM barang");
                             $result = mysqli_fetch_assoc($query);
@@ -83,7 +71,7 @@ include 'menu-bar.php';
                     </div>
                 </div>
                 
-                <!-- Total Data Type from Penjualan -->
+                <!-- Total Data on Penjualan -->
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-primary">
                         <div class="inner">
@@ -103,7 +91,7 @@ include 'menu-bar.php';
                     </div>
                 </div>
 
-                <!-- Total Profit from Penjualan -->
+                <!-- Monthly Profit -->
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
@@ -111,12 +99,13 @@ include 'menu-bar.php';
                             <?php
                             $query = mysqli_query($koneksi, "SELECT SUM(p.quantity * b.harga_beli) AS total_profit 
                                                               FROM penjualan p 
-                                                              JOIN barang b ON p.id_barang = b.id_barang");
+                                                              JOIN barang b ON p.id_barang = b.id_barang
+                                                              WHERE MONTH(p.tanggal_penjualan) = MONTH(CURRENT_DATE())");
                             $result = mysqli_fetch_assoc($query);
                             $total_profit = $result['total_profit'];
                             ?>
                             <h3>Rp<?php echo number_format($total_profit); ?></h3>
-                            <p>Total Profit</p>
+                            <p>Monthly Profit</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -145,7 +134,7 @@ include 'menu-bar.php';
                     </div>
                 </div>
 
-                <!-- Total Admin -->
+                <!-- Total Admins -->
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
@@ -167,7 +156,7 @@ include 'menu-bar.php';
             </div>
             <!-- /.row -->
 
-            <!-- TABLE: LATEST ORDERS -->
+            <!-- TABLE: Latest Penjualan -->
             <div class="card">
                 <div class="card-header border-transparent">
                     <h3 class="card-title">Latest Penjualan</h3>
@@ -200,16 +189,17 @@ include 'menu-bar.php';
                                 $query = mysqli_query($koneksi, "SELECT p.kode_penjualan, b.nama_barang, p.quantity, (p.quantity * b.harga_beli) AS total_profit, p.tanggal_penjualan 
                                   FROM penjualan p 
                                   JOIN barang b ON p.id_barang = b.id_barang 
+                                  WHERE MONTH(p.tanggal_penjualan) = MONTH(CURRENT_DATE())
                                   ORDER BY p.id_penjualan DESC LIMIT 5");
 
                                 // Loop through each penjualan and display them in the table
                                 while ($row = mysqli_fetch_assoc($query)) {
                                     echo "<tr>";
-                                    echo "<td>" . $row['kode_penjualan'] . "</a></td>";
+                                    echo "<td>" . $row['kode_penjualan'] . "</td>";
                                     echo "<td>" . $row['nama_barang'] . "</td>";
                                     echo "<td>" . $row['quantity'] . "</td>";
                                     echo "<td>Rp" . number_format($row['total_profit']) . "</td>";
-                                    echo "<td>" . date('Y-m-d H:i:s', strtotime($row['tanggal_penjualan'])) . "</td>";
+                                    echo "<td>" . date('d-m-Y H:i:s', strtotime($row['tanggal_penjualan'])) . "</td>";
                                     echo "</tr>";
                                 }
                                 ?>
