@@ -127,8 +127,8 @@ include 'header.php';
                                                     <td><?php echo $no; ?></td>
                                                     <td><?php echo $data['kode_penjualan']; ?></td>
                                                     <td><?php echo $data['nama_barang']; ?></td>
-                                                    <td><?php echo $data['quantity']; ?></td>
-                                                    <td><p><?php echo number_format($profit); ?></p></td>
+                                                    <td style='width: 90px; text-align:right;'><?php echo $data['quantity']; ?></td>
+                                                    <td style='width: 130px; text-align:right;'><?php echo number_format($profit); ?></td>
                                                     <td><?php echo $data['tanggal_penjualan'] ? date("d-m-Y H:i:s", strtotime($data['tanggal_penjualan'])) : ''; ?></td>
                                                 </tr>
                                                 <?php

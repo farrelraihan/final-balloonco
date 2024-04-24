@@ -123,7 +123,7 @@ include 'header.php';
                                                     <td><?php echo $no; ?></td>
                                                     <td><?php echo $data['kode_pembelian']; ?></td>
                                                     <td><?php echo $data['nama_barang']; ?></td>
-                                                    <td><?php echo $data['quantity']; ?></td>
+                                                    <td style='width: 100px; text-align:right;'><?php echo $data['quantity']; ?></td>
                                                     <td><?php echo date("d-m-Y H:i:s", strtotime($data['tanggal_pembelian'])); ?></td>
                                                 </tr>
                                                 <?php

@@ -219,7 +219,7 @@ include 'menu-bar.php';
                                     echo "<td>" . $row['kode_penjualan'] . "</td>";
                                     echo "<td>" . $row['nama_barang'] . "</td>";
                                     echo "<td>" . $row['quantity'] . "</td>";
-                                    echo "<td>" . number_format($row['total_profit']) . "</td>";
+                                    echo "<td style='width: 160px; text-align: right;'>" . number_format($row['total_profit']) . "</td>";
                                     echo "<td>" . date('d-m-Y H:i:s', strtotime($row['tanggal_penjualan'])) . "</td>";
                                     echo "</tr>";
                                 }
