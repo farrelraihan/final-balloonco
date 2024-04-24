@@ -58,8 +58,8 @@ include 'menu-bar.php';
                                         <th>Kode Barang</th>
                                         <th>Nama Barang</th>
                                         <th class="text-right">QTY Barang</th> <!-- Align right class added here -->
-                                        <th class="text-right">Harga Jual</th> <!-- Align right class added here -->
-                                        <th class="text-right">Harga Beli</th> <!-- Align right class added here -->
+                                        <th class="text-right">Harga Jual (Rp)</th> <!-- Align right class added here -->
+                                        <th class="text-right">Harga Beli (Rp)</th> <!-- Align right class added here -->
                                         <th>Deskripsi Barang</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -82,8 +82,8 @@ include 'menu-bar.php';
                                         <td><?php echo $data['kode_barang']; ?></td>
                                         <td><?php echo $data['nama_barang']; ?></td>
                                         <td class="text-right"><?php echo $data['qty_barang']; ?> <?php echo $stock_status; ?></td> <!-- Tambahkan pesan notifikasi jika stok rendah -->
-                                        <td class="text-right"><p>Rp<?php echo number_format($data['harga_barang']); ?></p></td>
-                                        <td class="text-right"><p>Rp<?php echo number_format($data['harga_beli']); ?></p></td>
+                                        <td class="text-right"><p><?php echo number_format($data['harga_barang']); ?></p></td>
+                                        <td class="text-right"><p><?php echo number_format($data['harga_beli']); ?></p></td>
                                         <td><?php echo $data['deskripsi_barang']; ?></td>
                                         <td>
                                             <a class="btn btn-warning btn-md" href="edit-barang.php?id=<?php echo $data['id_barang']; ?>">

@@ -108,7 +108,7 @@ include 'header.php';
                                                 <th>Kode Penjualan</th>
                                                 <th>Item</th>
                                                 <th>Quantity</th>
-                                                <th>Profit</th>
+                                                <th>Profit (Rp)</th>
                                                 <th>Date</th>
                                             </tr>
                                         </thead>
@@ -128,7 +128,7 @@ include 'header.php';
                                                     <td><?php echo $data['kode_penjualan']; ?></td>
                                                     <td><?php echo $data['nama_barang']; ?></td>
                                                     <td><?php echo $data['quantity']; ?></td>
-                                                    <td><p>Rp<?php echo number_format($profit); ?></p></td>
+                                                    <td><p><?php echo number_format($profit); ?></p></td>
                                                     <td><?php echo $data['tanggal_penjualan'] ? date("d-m-Y H:i:s", strtotime($data['tanggal_penjualan'])) : ''; ?></td>
                                                 </tr>
                                                 <?php

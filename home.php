@@ -200,7 +200,7 @@ include 'menu-bar.php';
                                     <th>Order ID</th>
                                     <th>Item</th>
                                     <th>Quantity</th>
-                                    <th>Total Profit</th>
+                                    <th>Total Profit(Rp)</th>
                                     <th>Date</th>
                                 </tr>
                             </thead>
@@ -219,7 +219,7 @@ include 'menu-bar.php';
                                     echo "<td>" . $row['kode_penjualan'] . "</td>";
                                     echo "<td>" . $row['nama_barang'] . "</td>";
                                     echo "<td>" . $row['quantity'] . "</td>";
-                                    echo "<td>Rp" . number_format($row['total_profit']) . "</td>";
+                                    echo "<td>" . number_format($row['total_profit']) . "</td>";
                                     echo "<td>" . date('d-m-Y H:i:s', strtotime($row['tanggal_penjualan'])) . "</td>";
                                     echo "</tr>";
                                 }
